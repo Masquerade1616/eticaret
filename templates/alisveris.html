@@ -1,0 +1,58 @@
+{% extends "index.html" %}
+{% load static %}
+
+  {% block title %}
+      <title>Sepet</title>
+  {% endblock title %}
+
+  {% block content %}
+
+  {% include "includes/_navbar.html" %}
+  
+    <!-- container bölümü -->
+
+    <div class="container-fluid">
+
+        <div class="row  mt-5 p-3">
+            <div class="col-12">
+                <table class="table" style="border: 1px solid gainsboro;">
+                    <thead>
+                      <tr style="background-color: orange; color: white;">                    
+                        <th style="padding-left: 3rem;" scope="col">Ürünlerim</th>
+                        <th scope="col">fiyat</th>
+                        <th scope="col" style="text-align: center;">toplam</th>
+                      </tr>
+                    </thead>
+                    <tbody class="text-center m-auto">
+                      
+
+
+                      <tr>
+                        
+                        <td><img src="{% static 'img/indir.png' %}" alt=""  style="float: left;  padding: 0 2rem;">
+                            <div class="w-25 pt-5">
+                                <span style="font-weight: bold;">siyah araba</span> <br> <small>İD > : 123456789</small>
+                            </div>
+                        
+                        </td>
+                        <td class="pt-5" style="font-weight: bold;">59 TL</td>
+                        <td class="pt-5">
+                            <span style="font-size: 1.7rem; color: tomato;">59 TL</span>
+                           <a href=""> <i class="fas fa-window-close" style="font-size: 1.7rem; color: gainsboro; padding-left: 2rem;"></i></a>
+                        </td>
+
+
+                    </tr>
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+
+            </div>
+        </div>
+
+    </div>
+
+       
+      {% include "includes/_footer.html" %}
+  {% endblock content %}    

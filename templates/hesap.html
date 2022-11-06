@@ -1,0 +1,132 @@
+{% extends "index.html" %}
+{% load static %}  
+
+    {% block title %}
+      <title>Hesap Ayarları</title>
+  {% endblock title %}
+
+{% block content %}
+
+
+    <style>
+        body, html {
+            color: black;
+            background-color: white;
+        }
+        a {
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .container {
+            margin-top: 100px;
+        }
+        .accordion, .panel {
+            background-color: rgba(34, 34, 34, 0);
+            color: black;
+        }
+    </style>
+
+    <!-- Navbar -->
+        
+
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container-fluid">
+                <i class="fab fa-shopify" style="font-size: 2rem; color: rgb(0, 0, 0);"></i>
+              <a class="navbar-brand" href="/">e_ticaret</a>
+
+              <div class="collapse navbar-collapse justify-content-end" id="navbarNav">                
+                <ul class="navbar-nav">
+                
+                  <li class="nav-item p-3">
+                      <i class="fas fa-user nav-ikonlar"></i>
+                    <a class="nav-link active" aria-current="page" href="{% url 'hesap' %}" style="display: inline;">Hesap</a>
+                  </li>
+                  
+                  <li class="nav-item p-3">
+                    <i class="fas fa-shopping-cart nav-ikonlar"></i>
+                    <a class="nav-link" href="{% url 'alisveris' %}" style="display: inline;">Sepet</a>
+                  </li>
+
+                    <li class="nav-item p-3">
+                      <a class="nav-link text-uppercase" href="" style="display: inline;"><img src="{{user.resim.url}}" width="30px" height="30px" class="rounded-5" alt="">{{request.user}}</a>
+                    </li>
+
+                    <li class="nav-item p-3">
+                      <i class="fas fa-lock nav-ikonlar"></i>
+                      <a class="nav-link text-uppercase" href="{% url 'logout' %}" style="display: inline;">Çıkış</a>
+                    </li>                    
+        
+
+                </ul>
+              </div>
+            </div>
+          </nav>
+
+
+    
+
+    <!-- Hesap -->
+    <div class="container">
+        <div class="row">
+            <div class="col">
+
+                <div class="row">
+                    <h1>Hesap</h1>
+                    <hr>
+                    <div class="col">
+                        <h4>Hesap Ayarları</h4>
+                        <button><a href="{% url 'delete' %}">Hesabımı Sil</a></button>
+                    </div>
+                    <div class="col">
+                        <p> {{request.user}} </p>
+                        <strong> {{request.user.email}} </strong>
+                        <p>Şifre: ********</p>
+                        <p>tel: {{user.tel}} </p>
+                    </div>
+                    <div class="col">
+                        <a href="">E-postayi değiştir</a> <br>
+                        <a href="">Parolayı değiştir</a> <br>
+                        <a href="">Telefon numarasını değiştir</a>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <hr>
+                    <div class="col">
+                        <h4>Ayarlar</h4>
+                    </div>
+
+                    <div class="col">
+                        <a href="">18+ İçerik</a> <br>
+                        <a href="">Teste katılın</a> <br>
+                        <a href="">İçerik indirilen cihazları yönet</a>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <hr>
+                    <div class="col">
+                        <h4>Dil Seçenekleri</h4>
+                    </div>
+
+                    <div class="col">
+                        <button class="accordion"><img src="" alt="">{{request.user}}</button>
+                        <div class="panel">
+                            <p>
+                                <strong>Dil</strong> <br>
+                                <a href="" class="text-end">Değiştir</a>
+                            </p>
+                            
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    
+{% endblock content %}

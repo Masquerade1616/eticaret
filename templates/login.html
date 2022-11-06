@@ -1,0 +1,45 @@
+{% extends "index.html" %}
+{% load static %}
+
+  {% block title %}
+      <title>Giriş Yap</title>
+  {% endblock title %}
+
+{% block content %}
+
+  {% include "includes/_navbar.html" %}
+
+    <!-- container bölümü -->
+    
+    <div class="container">
+        <div class="row mt-5 p-5">
+            
+            <div class="col-xl-5 col-lg-5 col-md-5 col-12 m-auto">
+                <h5 class="mb-4 text-muted">Giriş Yap!</h5>
+                <form action="" method="POST" class="">
+                    {% csrf_token %}
+                    {% if next %}
+                        <input type="hidden" name="next" value="{{next}}">
+                    {% else %}
+                    {% endif %}
+                    <div class="mb-3">                  
+                      <input type="text" name="kullanici" class="form-control" id="" placeholder="Adınız">                  
+                    </div>
+               
+                    <div class="mb-3">
+                      <input type="password" name="sifre" class="form-control" id="" placeholder="Şifreniz">
+                    </div>
+                    
+                    <input type="submit" class="btn" value="Giriş Yap" style="background-color: orange; color: white;">
+                  </form>
+            </div>
+        </div>
+    </div>
+
+
+        <!-- footer kısmım -->
+
+       {% include "includes/_footer.html" %}
+  
+    
+{% endblock content %}
